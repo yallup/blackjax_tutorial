@@ -62,13 +62,10 @@ single source of truth prevents the prior we draw from drifting away from the
 prior density used during inference.
 
 ```{code-cell} ipython3
-prior = distrax.Joint(
-    {
-        "slope": distrax.Normal(loc=0.0, scale=2.0),
-        "intercept": distrax.Normal(loc=0.0, scale=1.0),
-        "log_noise": distrax.Normal(loc=-1.0, scale=0.75),
-    }
-)
+# TODO: Build a distrax.Joint distribution with three named parameters:
+# slope ~ Normal(0, 2), intercept ~ Normal(0, 1), and
+# log_noise ~ Normal(-1, 0.75).
+prior = ...
 ```
 
 Keep the likelihood separate. This makes it easy to test, replace, or reuse in
@@ -76,20 +73,22 @@ another inference algorithm:
 
 ```{code-cell} ipython3
 def log_likelihood(params):
-    noise = jnp.exp(params["log_noise"])
-    mean = params["slope"] * x + params["intercept"]
-    return distrax.Normal(loc=mean, scale=noise).log_prob(y).sum()
+    # TODO: Transform log_noise, compute the line mean, and return the
+    # summed Normal log probability of y.
+    raise NotImplementedError
 
 
 def log_posterior(params):
-    return prior.log_prob(params) + log_likelihood(params)
+    # TODO: Combine the prior log probability and the log likelihood.
+    raise NotImplementedError
 ```
 
 Before inference, check that a prior draw has the shape and names you expect:
 
 ```{code-cell} ipython3
 key, init_key = jax.random.split(key)
-initial_position = prior.sample(seed=init_key)
+# TODO: Draw one initial position from the prior.
+initial_position = ...
 
 initial_position, log_posterior(initial_position)
 ```
@@ -113,15 +112,15 @@ draws, matching the composable interface used throughout the
 [Sampling Book Pathfinder lesson](https://blackjax-devs.github.io/sampling-book/algorithms/pathfinder.html).
 
 ```{code-cell} ipython3
-pathfinder = blackjax.pathfinder(log_posterior)
+# TODO: Compose BlackJAX Pathfinder with log_posterior.
+pathfinder = ...
 
 key, fit_key, sample_key = jax.random.split(key, 3)
-state, info = pathfinder.init(
-    fit_key,
-    initial_position,
-    ftol=1e-5,
-)
-samples, _ = pathfinder.sample(sample_key, state, 2_000)
+# TODO: Initialise the approximation from initial_position.
+state, info = ...
+
+# TODO: Draw 2,000 samples from the fitted approximation.
+samples, _ = ...
 ```
 
 The model did not need to know which algorithm would consume it. Pathfinder

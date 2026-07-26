@@ -1,12 +1,11 @@
-# BlackJAX: a field guide to inference
+# BlackJAX: a field guide to inference — learner branch
 
-A short MyST/Jupyter Book tutorial that moves from a clean Python setup to a
-structured Bayesian model in Distrax and a Pathfinder approximation in
-BlackJAX.
+This is the workshop branch. It contains deliberate gaps in Lesson 2 for you to
+fill. The complete answers are on `main`.
 
 ## Start the workshop
 
-Clone the learner branch, which contains deliberate gaps:
+Clone this branch:
 
 ```bash
 git clone --branch learner --single-branch \
@@ -20,23 +19,23 @@ Install the project and book dependencies with `uv`:
 uv sync --group book
 ```
 
-Then preview the book:
+Then preview the unexecuted book:
 
 ```bash
 make preview
 ```
 
-The complete answers live on `main`. If `uv` is unavailable, the setup lesson
-includes a `pip install` fallback.
+Open `book/lessons/model-pathfinder.md` and search for `TODO`. If `uv` is
+unavailable, the setup lesson includes a `pip install` fallback.
 
-## Build
+## Check your answers
 
 ```bash
-make build
+make check
 ```
 
-The static site is written to `book/_build/html/`. A GitHub Actions workflow
-publishes that directory to GitHub Pages whenever `main` changes.
+`make check` executes every cell. A successful build is your confirmation that
+the model and Pathfinder composition are complete.
 
 ## Sources
 

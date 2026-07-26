@@ -7,11 +7,12 @@ that can be composed with the wider BlackJAX toolbox.
 This is a short, practical route for a general audience. You need basic Python,
 but you do not need prior experience with JAX or Bayesian computation.
 
-:::{admonition} Start on the learner branch
+:::{admonition} You are on the learner branch
 :class: tip
 
-The website shows the complete route. To follow along with the exercises, clone
-the branch with deliberate gaps:
+This branch contains deliberate gaps in Lesson 2. If you are already reading
+this locally, open `book/lessons/model-pathfinder.md` and search for `TODO`.
+Otherwise, clone the exercises:
 
 ```bash
 git clone --branch learner --single-branch \
@@ -22,6 +23,9 @@ uv sync --group book
 
 Prefer HTTPS? Replace the clone URL with
 `https://github.com/yallup/blackjax_tutorial.git`.
+
+Run `make check` when you have filled the gaps. Complete answers are on `main`
+and on the published website.
 :::
 
 ## The route
