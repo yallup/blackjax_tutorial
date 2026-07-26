@@ -30,8 +30,14 @@ or install the project into your current Python environment:
 python -m pip install .
 ```
 
-Open `CosmicExplosions2026_BlackJAX_tutorial.ipynb`, select the environment
-you just installed, and work through:
+Launch the notebook in your browser:
+
+```bash
+uv run jupyter notebook CosmicExplosions2026_BlackJAX_tutorial.ipynb
+```
+
+Jupyter opens `CosmicExplosions2026_BlackJAX_tutorial.ipynb` using the
+environment you just installed. Work through:
 
 - **Lesson 1:** setup;
 - **Lesson 2:** a Distrax line-fitting model and Pathfinder;
