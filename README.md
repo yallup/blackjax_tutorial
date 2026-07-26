@@ -1,7 +1,12 @@
-# BlackJAX: a field guide to inference — learner branch
+# CosmicExplosions 2026 · BlackJAX tutorial — learner branch
 
-This is the workshop branch. It contains deliberate gaps in Lesson 2 for you to
-fill. The complete answers are on `main`.
+This is the workshop branch. All three lessons are collected in one real
+Jupyter notebook with deliberate gaps:
+
+**`CosmicExplosions2026_BlackJAX_tutorial.ipynb`**
+
+The complete, executed MyST lessons are on `main` and at
+[yallup.github.io/blackjax_tutorial](https://yallup.github.io/blackjax_tutorial/).
 
 ## Start the workshop
 
@@ -13,29 +18,29 @@ git clone --branch learner --single-branch \
 cd blackjax_tutorial
 ```
 
-Install the project and book dependencies with `uv`:
+Install the locked workshop environment:
 
 ```bash
-uv sync --group book
+uv sync
 ```
 
-Then preview the unexecuted book:
+or install the project into your current Python environment:
 
 ```bash
-make preview
+python -m pip install .
 ```
 
-Open `book/lessons/model-pathfinder.md` and search for `TODO`. If `uv` is
-unavailable, the setup lesson includes a `pip install` fallback.
+Open `CosmicExplosions2026_BlackJAX_tutorial.ipynb`, select the environment
+you just installed, and work through:
 
-## Check your answers
+- **Lesson 1:** setup;
+- **Lesson 2:** a Distrax line-fitting model and Pathfinder;
+- **Lesson 3:** Nested Slice Sampling and Pathfinder-informed posterior
+  repartitioning.
 
-```bash
-make check
-```
-
-`make check` executes every cell. A successful build is your confirmation that
-the model and Pathfinder composition are complete.
+Search the notebook for `TODO` to find every exercise. The learner branch has
+no website build or publishing dependencies; everything needed by the notebook
+is declared in `pyproject.toml`.
 
 ## Sources
 
@@ -43,5 +48,6 @@ The tutorial is adapted from the
 [BlackJAX Sampling Book](https://github.com/blackjax-devs/sampling-book) and
 the [Nested Sampling Book](https://github.com/handley-lab/nested-sampling-book).
 The final reading list connects this material to
-[Nested Slice Sampling](https://arxiv.org/abs/2601.23252) and
+[Nested Slice Sampling](https://arxiv.org/abs/2601.23252),
+[posterior repartitioning](https://arxiv.org/abs/1908.04655), and
 [SwiG](https://github.com/yallup/swig).
