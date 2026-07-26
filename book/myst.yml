@@ -1,6 +1,6 @@
 version: 1
 project:
-  title: BlackJAX · A field guide to inference
+  title: CosmicExplosions 2026 · BlackJAX tutorial
   authors:
     - name: The BlackJAX tutorial contributors
   github: yallup/blackjax_tutorial
@@ -19,11 +19,13 @@ project:
         - file: advanced/frontier.md
         - file: references.md
 site:
-  title: BlackJAX field guide
+  title: CosmicExplosions 2026 · BlackJAX tutorial
   template: book-theme
   actions:
+    - title: CosmicExplosions 2026
+      url: https://cambridgetransients.github.io/CosmicExplosions2026/
     - title: GitHub
       url: https://github.com/yallup/blackjax_tutorial
   options:
     folders: true
-    logo_text: BlackJAX field guide
+    logo_text: CosmicExplosions 2026 · BlackJAX tutorial

@@ -1,4 +1,4 @@
-# BlackJAX: a field guide to inference
+# [CosmicExplosions 2026](https://cambridgetransients.github.io/CosmicExplosions2026/) · BlackJAX tutorial
 
 Build a small Bayesian workflow from the ground up: a clean Python environment,
 a model whose assumptions are explicit, and a fast Pathfinder approximation
