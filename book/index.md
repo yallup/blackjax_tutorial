@@ -18,7 +18,10 @@ git clone --branch learner --single-branch \
   git@github.com:yallup/blackjax_tutorial.git
 cd blackjax_tutorial
 uv sync
+uv run jupyter notebook CosmicExplosions2026_BlackJAX_tutorial.ipynb
 ```
+
+The last command starts Jupyter and opens the learner notebook in your browser.
 
 Prefer HTTPS? Replace the clone URL with
 `https://github.com/yallup/blackjax_tutorial.git`.

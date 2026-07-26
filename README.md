@@ -19,13 +19,21 @@ Install the locked workshop environment:
 uv sync
 ```
 
-Then open `CosmicExplosions2026_BlackJAX_tutorial.ipynb` and search for `TODO`.
-The complete answers live on `main`. If `uv` is unavailable, run
-`python -m pip install .` instead.
-
-## Build
+Launch the learner notebook in your browser:
 
 ```bash
+uv run jupyter notebook CosmicExplosions2026_BlackJAX_tutorial.ipynb
+```
+
+Then search for `TODO`. The complete answers live on `main`. If `uv` is
+unavailable, run `python -m pip install .` instead.
+
+## Build the complete website (`main` only)
+
+The website source and Makefile live on the `main` branch:
+
+```bash
+uv sync --group book
 make build
 ```
 

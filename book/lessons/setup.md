@@ -36,8 +36,8 @@ uv sync
 ```
 
 This creates `.venv/` and installs BlackJAX, Distrax, NumPy, Matplotlib,
-IPython, and the notebook kernel. You do not need to activate the environment
-when you prefix commands with `uv run`.
+IPython, Jupyter Notebook, and the notebook kernel. You do not need to activate
+the environment when you prefix commands with `uv run`.
 
 Register the environment as a notebook kernel:
 
@@ -46,6 +46,15 @@ uv run python -m ipykernel install --user \
   --name blackjax-tutorial \
   --display-name "Python (BlackJAX tutorial)"
 ```
+
+## Open the learner notebook
+
+```bash
+uv run jupyter notebook CosmicExplosions2026_BlackJAX_tutorial.ipynb
+```
+
+Jupyter starts a local server and opens the notebook in your default browser.
+Return to the terminal and press `Ctrl-C` when you want to stop it.
 
 :::{admonition} No uv?
 :class: note
@@ -57,6 +66,7 @@ python -m pip install .
 python -m ipykernel install --user \
   --name blackjax-tutorial \
   --display-name "Python (BlackJAX tutorial)"
+python -m jupyter notebook CosmicExplosions2026_BlackJAX_tutorial.ipynb
 ```
 :::
 

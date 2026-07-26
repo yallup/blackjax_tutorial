@@ -11,6 +11,7 @@ dependencies = [
     "ipython",
     "jax",
     "matplotlib",
+    "notebook",
     "numpy",
 ]
 
