@@ -14,10 +14,18 @@ This tutorial adapts ideas and examples from:
   [BlackJAX repository](https://github.com/blackjax-devs/blackjax).
 - [Distrax](https://github.com/google-deepmind/distrax), used to keep prior
   sampling and log-density evaluation together.
+- [TensorFlow Probability](https://www.tensorflow.org/probability), an
+  alternative distribution, bijector, and joint-distribution toolkit, and the
+  [BlackJAX PPL integration examples](https://blackjax-devs.github.io/blackjax/examples/howto_use_tfp.html).
+- [BlackJAX design principles](https://blackjax-devs.github.io/blackjax/developer/design_principles.html):
+  pure kernels, explicit state, and composable building blocks.
 - [Pathfinder: Parallel Quasi-Newton Variational
   Inference](https://arxiv.org/abs/2108.03782).
 - [Nested Slice Sampling: Vectorized Nested Sampling for GPU-Accelerated
   Inference](https://arxiv.org/abs/2601.23252).
+- [Bayesian posterior repartitioning for nested
+  sampling](https://arxiv.org/abs/1908.04655) and
+  [SuperNest](https://arxiv.org/abs/2212.01760).
 - [Nested Sampling with Slice-within-Gibbs: Efficient Evidence Calculation for
   Hierarchical Bayesian Models](https://arxiv.org/abs/2602.17414) and the
   [SwiG implementation](https://github.com/yallup/swig).

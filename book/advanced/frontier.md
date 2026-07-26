@@ -5,9 +5,9 @@ extra exercise.
 
 ## From posterior approximation to nested sampling
 
-Pathfinder approximates a posterior quickly. Nested sampling tackles a
-different objective as well: it estimates the Bayesian evidence needed for
-model comparison. The
+Lesson 3 used Pathfinder and Nested Slice Sampling together on a small model.
+Nested sampling also estimates the Bayesian evidence needed for model
+comparison. The
 [Nested Sampling Book](https://github.com/handley-lab/nested-sampling-book) is
 the natural next stop after this workshop.
 
@@ -48,7 +48,7 @@ uv sync --extra examples
 1. Keep a well-factored model: named PyTrees, a prior object, and pure density
    functions.
 2. Use Pathfinder for a rapid approximation and diagnostic.
-3. Reach for BlackJAX nested sampling when evidence is part of the question.
+3. Use BlackJAX nested sampling when evidence is part of the question.
 4. Investigate SwiG when the model is genuinely hierarchical and block
    structure can be exploited.
 

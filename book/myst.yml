@@ -14,6 +14,7 @@ project:
       children:
         - file: lessons/setup.md
         - file: lessons/model-pathfinder.md
+        - file: lessons/nss-repartitioning.md
     - title: Go further
       children:
         - file: advanced/frontier.md

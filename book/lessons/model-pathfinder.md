@@ -71,14 +71,20 @@ prior = distrax.Joint(
 )
 ```
 
-Keep the likelihood separate. This makes it easy to test, replace, or reuse in
-another inference algorithm:
+Keep the likelihood separate and write its Gaussian log density directly in
+JAX. This makes the numerical model explicit and easy to test, replace, or
+reuse in another inference algorithm:
 
 ```{code-cell} ipython3
 def log_likelihood(params):
     noise = jnp.exp(params["log_noise"])
     mean = params["slope"] * x + params["intercept"]
-    return distrax.Normal(loc=mean, scale=noise).log_prob(y).sum()
+    standardised_residual = (y - mean) / noise
+    return -0.5 * jnp.sum(
+        standardised_residual**2
+        + 2.0 * jnp.log(noise)
+        + jnp.log(2.0 * jnp.pi)
+    )
 
 
 def log_posterior(params):
@@ -103,7 +109,54 @@ initial_position, log_posterior(initial_position)
 4. Test one draw before compiling or sampling.
 :::
 
-## 3. Compose the model with Pathfinder
+## 3. PPLs and the BlackJAX philosophy
+
+Distrax is a distribution and bijector library rather than a complete
+probabilistic programming language (PPL). It is a good fit here because our
+model is small and writing the likelihood explicitly makes every assumption
+visible. [TensorFlow Probability](https://www.tensorflow.org/probability) is
+another option: it provides a much larger collection of distributions,
+bijectors, joint distributions, and inference tools, including a
+[JAX substrate](https://www.tensorflow.org/probability/api_docs/python/tfp/substrates/jax/distributions).
+
+Both libraries can compose named distributions:
+[Distrax `Joint`](https://github.com/google-deepmind/distrax#joint-distributions)
+is what we use above, while TFP provides `JointDistribution`. These objects
+bundle sampling and joint-density evaluation, but that capability alone does
+not make either one a PPL.
+
+Full PPLs such as NumPyro, PyMC, and Stan go further. They let you describe a
+generative model and typically manage tasks such as parameter transforms,
+conditioning, naming latent variables, and assembling the joint log density.
+That is extremely useful as models grow.
+
+BlackJAX deliberately sits at a different layer:
+
+| Layer | Main question | Examples |
+| --- | --- | --- |
+| Distribution toolkit | How do I sample from, score, and compose distributions? | Distrax (`Joint`), TensorFlow Probability (`JointDistribution`) |
+| Probabilistic programming | How do I express and manage a generative model? | NumPyro, PyMC, Stan |
+| Inference algorithms | How does state move through this target density? | BlackJAX Pathfinder, NUTS, SMC, NSS |
+
+BlackJAX is therefore an **inference library, not a modelling language**. Its
+[design principles](https://blackjax-devs.github.io/blackjax/developer/design_principles.html)
+favour small pure functions, explicit random keys and state, PyTrees, and
+`init`/`step` interfaces. The trade-off is visible plumbing: we supply a log
+density—or, for nested sampling, separate prior and likelihood functions.
+The payoff is that the model is not owned by one algorithm, and algorithmic
+pieces can be inspected, replaced, transformed with JAX, and recomposed.
+
+These approaches are complementary. A larger project can define its model in a
+PPL, extract a JAX-compatible log-density function, and pass that function to
+BlackJAX. The BlackJAX documentation demonstrates this with
+[NumPyro](https://blackjax-devs.github.io/blackjax/examples/howto_use_numpyro.html),
+[PyMC](https://blackjax-devs.github.io/blackjax/examples/howto_use_pymc.html),
+and
+[TensorFlow Probability](https://blackjax-devs.github.io/blackjax/examples/howto_use_tfp.html).
+We use Distrax today to keep that boundary easy to see; TFP is an equally valid
+model-building route, but it is not an extra workshop dependency.
+
+## 4. Compose the model with Pathfinder
 
 [Pathfinder](https://arxiv.org/abs/2108.03782) follows an L-BFGS optimisation
 path and builds local Gaussian approximations from the optimiser's inverse
