@@ -32,12 +32,12 @@ The repository includes a `pyproject.toml` and a locked dependency set. From
 the project directory, run:
 
 ```bash
-uv sync --group book
+uv sync
 ```
 
 This creates `.venv/` and installs BlackJAX, Distrax, NumPy, Matplotlib,
-IPython, the notebook kernel, and the MyST book tools. You do not need to
-activate the environment when you prefix commands with `uv run`.
+IPython, and the notebook kernel. You do not need to activate the environment
+when you prefix commands with `uv run`.
 
 Register the environment as a notebook kernel:
 
@@ -50,10 +50,10 @@ uv run python -m ipykernel install --user \
 :::{admonition} No uv?
 :class: note
 
-A plain `pip` environment is fine for following the two lessons:
+A plain `pip` environment is fine for following the three lessons:
 
 ```bash
-python -m pip install blackjax distrax numpy matplotlib ipython ipykernel
+python -m pip install .
 python -m ipykernel install --user \
   --name blackjax-tutorial \
   --display-name "Python (BlackJAX tutorial)"

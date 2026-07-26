@@ -1,8 +1,7 @@
-# BlackJAX: a field guide to inference
+# CosmicExplosions 2026 · BlackJAX tutorial
 
-A short MyST/Jupyter Book tutorial that moves from a clean Python setup to a
-structured Bayesian model in Distrax and a Pathfinder approximation in
-BlackJAX.
+A short MyST tutorial that moves from setup to a structured Bayesian model,
+Pathfinder, Nested Slice Sampling, and posterior repartitioning in BlackJAX.
 
 ## Start the workshop
 
@@ -14,20 +13,15 @@ git clone --branch learner --single-branch \
 cd blackjax_tutorial
 ```
 
-Install the project and book dependencies with `uv`:
+Install the locked workshop environment:
 
 ```bash
-uv sync --group book
+uv sync
 ```
 
-Then preview the book:
-
-```bash
-make preview
-```
-
-The complete answers live on `main`. If `uv` is unavailable, the setup lesson
-includes a `pip install` fallback.
+Then open `CosmicExplosions2026_BlackJAX_tutorial.ipynb` and search for `TODO`.
+The complete answers live on `main`. If `uv` is unavailable, run
+`python -m pip install .` instead.
 
 ## Build
 
@@ -44,5 +38,6 @@ The tutorial is adapted from the
 [BlackJAX Sampling Book](https://github.com/blackjax-devs/sampling-book) and
 the [Nested Sampling Book](https://github.com/handley-lab/nested-sampling-book).
 The final reading list connects this material to
-[Nested Slice Sampling](https://arxiv.org/abs/2601.23252) and
+[Nested Slice Sampling](https://arxiv.org/abs/2601.23252),
+[posterior repartitioning](https://arxiv.org/abs/1908.04655), and
 [SwiG](https://github.com/yallup/swig).

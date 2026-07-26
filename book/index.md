@@ -17,7 +17,7 @@ the branch with deliberate gaps:
 git clone --branch learner --single-branch \
   git@github.com:yallup/blackjax_tutorial.git
 cd blackjax_tutorial
-uv sync --group book
+uv sync
 ```
 
 Prefer HTTPS? Replace the clone URL with
