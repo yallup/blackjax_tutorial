@@ -1,0 +1,29 @@
+version: 1
+project:
+  title: BlackJAX · A field guide to inference
+  authors:
+    - name: The BlackJAX tutorial contributors
+  github: yallup/blackjax_tutorial
+  bibliography:
+    - references.bib
+  settings:
+    output_stderr: remove
+  toc:
+    - file: index.md
+    - title: Lessons
+      children:
+        - file: lessons/setup.md
+        - file: lessons/model-pathfinder.md
+    - title: Go further
+      children:
+        - file: advanced/frontier.md
+        - file: references.md
+site:
+  title: BlackJAX field guide
+  template: book-theme
+  actions:
+    - title: GitHub
+      url: https://github.com/yallup/blackjax_tutorial
+  options:
+    folders: true
+    logo_text: BlackJAX field guide

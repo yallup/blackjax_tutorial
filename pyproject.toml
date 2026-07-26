@@ -1,0 +1,25 @@
+[project]
+name = "blackjax-tutorial"
+version = "0.1.0"
+description = "A general-audience tutorial for composable Bayesian inference with BlackJAX"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+    "blackjax>=1.6",
+    "distrax>=0.1.5",
+    "ipykernel",
+    "ipython",
+    "jax",
+    "matplotlib",
+    "numpy",
+]
+
+[dependency-groups]
+book = [
+    "jupyter-book>=2",
+    "jupyter-cache",
+    "jupytext",
+]
+
+[tool.uv]
+package = false

@@ -1,0 +1,13 @@
+.venv/
+book/_build/
+book/.jupyter_cache/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.DS_Store
+.codex/
+.vinext/
+.wrangler/
+node_modules/
+dist/
